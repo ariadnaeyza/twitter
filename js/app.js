@@ -13,8 +13,10 @@ window.addEventListener("load", function(){
     });
     
     //Evento
-    textArea.addEventListener("keyup",function(){
+    textArea.addEventListener("keyup",function(e){
+         var tecla = e.keyCode;
         cantidadCaracteres(textArea);
+        crecerTextarea(tecla);
     });
     
     function agregarMensaje (texto){
@@ -25,7 +27,6 @@ window.addEventListener("load", function(){
     }
     
     function cantidadCaracteres(texto){
-
         var longitud = texto.value.length;
         contador.innerHTML = 140 - longitud;
         
@@ -40,11 +41,20 @@ window.addEventListener("load", function(){
         }
         else if(longitud>130 && longitud < 141){
             contador.style.color="red";
+        }else{
+            contador.style.color = "black";     
         }
-        else
-            contador.style.color = "black";
-            
-        
+    }
+    
+    function crecerTextarea(tecla){
+        if(tecla == 13){
+            textArea.rows++;
+        }else if(tecla == 8){
+            textArea.rows--;
+        }
+        if(textArea.rows < 3){
+            textArea.rows = 2;    
+        }
     }
     
     
