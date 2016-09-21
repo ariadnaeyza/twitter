@@ -4,24 +4,57 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>Twitter</title>
-
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image/png" href="img/icono.png"/>
+    <!--CSS-->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Twitter</title>
 </head>
 <body>
-    <h1 class="">Twitter</h1>
-
-    <form action="" method="get">
-        <textarea id="texto" name="tweet" rows="4" cols="50" placeholder="¿Qué está pasando?">
-        </textarea><br>
-        <a href="#"><i class="fa fa-camera"></i></a>
-        <a href="#"><i class="fa fa-gift"></i></a>
-        <a href="#"><i class="fa fa-map-marker"></i></a>
-        <button class="btn"><i class="fa fa-twitter"></i> Tweet</button>
-    </form>
+   <section class="container">
+       <div class="row">
+           <div class="col-sm-8 col-sm-offset-2 well text-center">
+               <h1>Twitter</h1>
+               <form accept-charset="UTF-8" action="">
+                   <div class="media">
+                      <!--PERFIL-->
+                       <div class="media-left">
+                          <img class="media-object perfil" src="img/perfil.jpg" alt="perfil">
+                       </div>
+                       <!--TEXT-AREA-->
+                       <div class="media-body">
+                           <textarea class="media-heading form-control" id="texto" name="tweet" rows="4" placeholder="¿Qué está pasando?"></textarea>
+                       </div>
+                   </div>
+                   <br>
+                   <br>
+                   <!--ICONOS-->
+                   <div class="text-left col-sm-6">
+                       <a href="#"><i class="fa fa-camera"></i></a>
+                       <a href="#"><i class="fa fa-gift"></i></a>
+                       <a href="#"><i class="fa fa-map-marker"></i></a>
+                   </div>
+                   <!--BOTON-->
+                   <div class="text-right col-sm-6">
+                       <p class="contador" id="contar">140</p>
+                       <button type="submit" class="btn btn-info" id="enviar" disabled><i class="fa fa-twitter"></i>Tweet</button>
+                   </div>
+               </form>
+           </div>
+       </div>
+       <!--TWEETS-->
+       <div class="row">
+           <div class="col-sm-8 col-sm-offset-2 well text-center">
+               <blockquote><div class="class="white text-center" id="mensajes""></div></blockquote>
+           </div>
+       </div>
+   </section>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!--JS-->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
