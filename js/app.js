@@ -14,9 +14,10 @@ window.addEventListener("load", function(){
     
     //Evento
     textArea.addEventListener("keyup",function(e){
-         var tecla = e.keyCode;
+        var tecla = e.keyCode;
         cantidadCaracteres(textArea);
         crecerTextarea(tecla);
+        scroll(textArea);
     });
     
     function agregarMensaje (texto){
@@ -44,6 +45,10 @@ window.addEventListener("load", function(){
         }else{
             contador.style.color = "black";     
         }
+        
+        /*(longitud > textArea.cols * textArea.rows){
+            textArea.rows++;
+        }*/
     }
     
     function crecerTextarea(tecla){
@@ -56,7 +61,9 @@ window.addEventListener("load", function(){
             textArea.rows = 2;    
         }
     }
-    
-    
-    
+    function scroll(textArea) {
+        textArea.style.height = "5px";
+        textArea.style.height = (textArea.scrollHeight)+"px";
+        
+    }
 });
