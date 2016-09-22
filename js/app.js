@@ -2,6 +2,7 @@ window.addEventListener("load", function(){
     var textArea= document.getElementById("texto");
     var boton = document.getElementById("enviar");
     var contador = document.getElementById("contar");
+    var mensajes =  document.getElementById("mensajes");
     boton.addEventListener("click", function(e){
         e.preventDefault();
         //para que no aparezca en la url a pesar que es tipo submit
@@ -11,22 +12,20 @@ window.addEventListener("load", function(){
         textArea.value = "";
         contador.style.color = "black";
     });
-    
     //Evento
     textArea.addEventListener("keyup",function(e){
         var tecla = e.keyCode;
         cantidadCaracteres(textArea);
         crecerTextarea(tecla);
-        scroll(textArea);
+        autoScroll(textArea);
     });
-    
+    //Funciones
     function agregarMensaje (texto){
         var div = document.createElement("div");
         div.innerText = texto;
-        var mensajes =  document.getElementById("mensajes");
         mensajes.insertBefore(div, mensajes.childNodes[0]);
+        horaTweet();
     }
-    
     function cantidadCaracteres(texto){
         var longitud = texto.value.length;
         contador.innerHTML = 140 - longitud;
@@ -43,14 +42,9 @@ window.addEventListener("load", function(){
         else if(longitud>130 && longitud < 141){
             contador.style.color="red";
         }else{
-            contador.style.color = "black";     
+            contador.style.color = "black";
         }
-        
-        /*(longitud > textArea.cols * textArea.rows){
-            textArea.rows++;
-        }*/
     }
-    
     function crecerTextarea(tecla){
         if(tecla == 13){
             textArea.rows++;
@@ -61,9 +55,16 @@ window.addEventListener("load", function(){
             textArea.rows = 2;    
         }
     }
-    function scroll(textArea) {
+    function autoScroll(textArea) {
         textArea.style.height = "5px";
-        textArea.style.height = (textArea.scrollHeight)+"px";
-        
+        textArea.style.height = (textArea.scrollHeight)+"px";    
+    }
+    function horaTweet(){
+        var fecha = new Date();
+        var hora = fecha.getHours();
+        var min = fecha.getMinutes();
+        var contenHora = document.createElement("div");
+        contenHora.innerText = hora + ":" + min;
+        mensajes.insertBefore(contenHora,mensajes.childNodes[0]);    
     }
 });

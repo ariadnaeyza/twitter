@@ -22,3 +22,6 @@ body{
 textarea{
     overflow: hidden;
 }
+.tweet{
+    word-wrap: break-word;
+}
